@@ -30,14 +30,14 @@ public class UserController : ControllerBase
         return Ok(users);
     }
     
-    [HttpGet("byId{id}")]
+    [HttpGet("byId/{id}")]
     public async Task<IActionResult> GetUserById(int id)
     {
         var user = await _userService.GetAllUserById(id);
         return Ok(user);
     }
     
-    [HttpGet("byName{userName}")]
+    [HttpGet("byName/{userName}")]
     public async Task<IActionResult> GetUserByUserName(string userName)
     {
         var user = await _userService.GetAllUserByName(userName);

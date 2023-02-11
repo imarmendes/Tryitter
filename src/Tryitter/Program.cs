@@ -12,11 +12,7 @@ builder.Services.AddControllers();
 //     options.UseSqlServer(@"Server=127.0.0.1;Database=master;User=SA;Password=Password12!;Encrypt=false;");
 // });
 
-// builder.Services.AddDbContext<TryitterContext>(options => {
-//     options.UseMySQL(@"jdbc:mysql://localhost:3306/mydb?user=user&password=password");
-// });
-
-builder.Services.AddDbContext<TryitterContext>();
+builder.Services.AddDbContext<TryitterContext>(opt => opt.UseInMemoryDatabase("Tryiter"));
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();

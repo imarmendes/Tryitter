@@ -142,7 +142,7 @@ public class UserService : IUserService
             var user = _mapper.Map<User>(userRequest);
 
             var userExist = await  _userRepository.UserExist(id);
-            if (userExist) return Response.Unprocessable(Report.Create("Usuário a ser atualizado não existe;"));
+            if (!userExist) return Response.Unprocessable(Report.Create("Usuário a ser atualizado não existe;"));
         
             var userUpdated = await _userRepository.UpdateUser(id, user);
             var userResponse = _mapper.Map<UserResponse>(userUpdated);
@@ -161,7 +161,7 @@ public class UserService : IUserService
         try
         {
             var userExist = await _userRepository.UserExist(id);
-            if (userExist) return Response.Unprocessable(Report.Create("Usuário a ser deletado não existe;"));
+            if (!userExist) return Response.Unprocessable(Report.Create("Usuário a ser deletado não existe;"));
 
             var userToDelete = await _userRepository.GetAllUserById(id);
             var userDeleted = await _userRepository.DeleteUser(userToDelete);

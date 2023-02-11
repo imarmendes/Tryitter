@@ -22,7 +22,7 @@ public class PostController : ControllerBase
         return Ok(post);
     }
     
-    [HttpGet("ByUserId{userId:int}")]
+    [HttpGet("ByUserId/{userId:int}")]
     public async Task<IActionResult> GetAllPostsByUserId(int userId)
     {
         var posts = await _postService.GetAllPostsByUserId(userId);
@@ -30,7 +30,7 @@ public class PostController : ControllerBase
         return Ok(posts);
     }
     
-    [HttpGet("LastByUserId{userId:int}")]
+    [HttpGet("LastByUserId/{userId:int}")]
     public async Task<IActionResult> GetPostLastByUserId(int userId)
     {
         var post = await _postService.GetPostLastByUserId(userId);

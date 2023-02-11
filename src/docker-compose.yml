@@ -8,9 +8,31 @@ services:
       MSSQL_PID: "Developer"
     ports:
       - "1433:1433"
-  mssqltools:
-    image: mcr.microsoft.com/mssql-tools
-    depends_on:
-      - sqlserver
-    volumes:
-      - ./:/var/opt/mssql/data1
+#  mssqltools:
+#    image: mcr.microsoft.com/mssql-tools
+#    depends_on:
+#      - sqlserver
+#    volumes:
+#      - ./:/var/opt/mssql/data
+
+#services:
+#  sqlserver:
+#    image: mcr.microsoft.com/mssql/server:2019-latest
+#    environment:
+#      SA_PASSWORD: "Pass@word"
+#      ACCEPT_EULA: "Y"
+#      MSSQL_PID: "Developer"
+#    ports:
+#      - "1433:1433"
+
+#version: '3'
+#services:
+#  db:
+#    image: mysql:8.0
+#    environment:
+#      MYSQL_ROOT_PASSWORD: password
+#      MYSQL_DATABASE: database_name
+#      MYSQL_USER: user_name
+#      MYSQL_PASSWORD: user_password
+#    ports:
+#      - "3306:3306"

@@ -99,6 +99,7 @@ public class UserRepository : IUserRepository
     {
         try
         {
+            user.Id = id;
             user.UpdatedAt = DateTime.Now;
             var response = _context.Users.Update(user);
             _context.SaveChanges();
